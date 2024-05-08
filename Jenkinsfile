@@ -31,7 +31,7 @@ pipeline{
                 script{
                     echo "building docker image"
                     dockerLogin()
-                    dockerBuild()
+                    dockerBuild("omarriad07/demo-app")
                     dockerPush()
 
             }
