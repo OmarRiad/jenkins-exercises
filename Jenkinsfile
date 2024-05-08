@@ -39,6 +39,7 @@ pipeline{
                     sh "docker push omarriad07/demo-app:${IMAGE_NAME}"
                 }
             }
+          }
         }
         stage("commit version update"){
             steps{
@@ -58,7 +59,6 @@ pipeline{
                     }
                 }
             }
-        }
         }
     }
 }
