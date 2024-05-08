@@ -10,7 +10,7 @@ pipeline{
                     echo "incrementing app version"
                     dir("app"){
                         sh 'npm version minor'
-                        def packageJson = readJSON file:package.json
+                        def packageJson = readJSON file:'package.json'
                         def version = packageJson.version
                         env.IMAGE_NAME = $version-$BUILD_NUMBER
                     }
