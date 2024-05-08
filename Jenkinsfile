@@ -8,6 +8,8 @@ pipeline{
         stage("increment version"){
             steps{
                 script{
+                    echo "incrementing app version"
+                    dir("app"){
                         IncrementV()
                     }
                 }
