@@ -32,7 +32,7 @@ pipeline{
                     echo "building docker image"
                     dockerLogin()
                     dockerBuild("omarriad07/demo-app")
-                    dockerPush()
+                    dockerPush("omarriad07/demo-app")
 
             }
           }
