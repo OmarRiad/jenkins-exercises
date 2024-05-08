@@ -21,8 +21,7 @@ pipeline{
                 script{
                     echo "running tests"
                     dir("app"){
-                        sh 'npm install'
-                        sh 'npm test'
+                        runTests()
                     }
                 }
             }
