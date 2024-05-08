@@ -1,3 +1,4 @@
+@Library('jenkins-shared-library') _
 pipeline{
     agent any
     tools{
@@ -7,14 +8,7 @@ pipeline{
         stage("increment version"){
             steps{
                 script{
-                    echo "incrementing app version"
-                    dir("app"){
-                        sh 'npm version minor'
-                        def packageJson = readJSON file:'package.json'
-                        def version = packageJson.version
-                        echo "$version"
-                        env.IMAGE_NAME = "$version-$BUILD_NUMBER"
-                        echo "$env.IMAGE_NAME"
+                        IncrementV()
                     }
                 }
             }
