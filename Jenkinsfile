@@ -41,17 +41,8 @@ pipeline{
             steps{
                 script{
                     withCredentials([string(credentialsId: 'github-token', variable: 'GITHUB_API_TOKEN')]){
-                        sh 'git config --global user.email "jenkins@example.com"'
-                        sh 'git config user.name "jenkins"'
-                    
-                        
-                        sh 'git status'
-                        sh 'git branch'
-                        sh 'git config --list'
-                        sh "git remote set-url origin https://${GITHUB_API_TOKEN}@github.com/OmarRiad/jenkins-exercises.git"
-                        sh 'git add .'
-                        sh 'git commit -m "ci: version bump"'
-                        sh 'git push origin HEAD:main'
+                        setUser()
+                        gitPush()
                     }
                 }
             }
