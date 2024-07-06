@@ -40,7 +40,7 @@ pipeline{
         stage('deploy to EC2') {
             steps {
                 script {
-                   def shellCmd = "bash ./server-cmds.sh ${IMAGE_NAME}"
+                   def shellCmd = "bash ./server-cmds.sh omarriad07/demo-app:${IMAGE_NAME}"
                    def ec2Instance = "ec2-user@13.39.50.216"
 
                    sshagent(['ec2-server-key']) {
